@@ -30,12 +30,8 @@ class TicTacToe
     @board[index] = character
   end
 
-  # def position_taken?(index)
-  #   !(@board[index].nil? || @board[index] == " ")
-  # end
-
-  def position_taken?(board, location)
-    @board[location] != " " && @board[location] != ""
+  def position_taken?(index)
+    !(@board[index].nil? || @board[index] == " ")
   end
 
   def valid_move?(index)
