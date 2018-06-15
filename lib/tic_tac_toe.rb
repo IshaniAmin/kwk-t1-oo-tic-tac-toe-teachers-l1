@@ -29,21 +29,25 @@ class TicTacToe
     puts "-----------"
     puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
   end
-## input_to_index
+
+
 def input_to_index(number)
   number = number.to_i
   index = number - 1
   return index
 end
-## move
+
+
 def move(index, counter = "X")
   @board[index]=counter
 end
-# position_taken
+
+
 def position_taken?(index)
   !(@board[index].nil? || @board[index] == " ")
 end
-#valid move FIX ME
+
+
 def valid_move?(index)
   if position_taken?(index) == false && index.between?(0,8)
     true
@@ -52,7 +56,7 @@ def valid_move?(index)
   end
 end
 
-# turn
+
 def turn
   puts "Please enter 1-9:"
   input = gets.strip
@@ -64,7 +68,8 @@ def turn
     turn
   end
 end
-# turn count
+
+
 def turn_count
   count =0
   @board.each do |move|
@@ -74,7 +79,8 @@ def turn_count
   end
 return count
 end
-# current player
+
+
 def current_player
   count=turn_count
   if count % 2 == 0
@@ -83,7 +89,8 @@ def current_player
     return "O"
   end
 end
-# won
+
+
 def won?
   WIN_COMBINATIONS.each do |win_combination|
     win_index_1 = win_combination[0]
@@ -106,7 +113,8 @@ def won?
     return false
   end
 end
-# full
+
+
 def full?
   if @board.include? " "
     return false
@@ -114,7 +122,8 @@ def full?
     return true
   end
 end
-# draw
+
+
 def draw?
   if won?
     return false
@@ -122,7 +131,8 @@ def draw?
     return true
   end
 end
-#over
+
+
 def over?
   if won?
     return true
@@ -132,7 +142,8 @@ def over?
     return false
   end
 end
-#winner
+
+
 def winner
   if won?
     win_combination = won?
